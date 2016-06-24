@@ -14,7 +14,6 @@ module Paytm
         optional_params = Hash[optional_params.map{ |k, v| [k.to_s.camel_case_lower, v] }]
         params['request'] = request_params
         params.merge!(optional_params)
-        puts params.to_json
         Paytm.request(method, url, params)
       end
     end

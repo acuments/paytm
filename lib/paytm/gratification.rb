@@ -19,9 +19,7 @@ module Paytm
     end
 
     def self.credit_to_user(params = {}, opts = {})
-      puts 'Hello'
       request_params.merge!(params)
-      puts request_params
       platform.merge!(opts)
       request_params.merge!(Paytm.guid)
       send_request(:post, merchant_to_wallet_url, request_params, platform)

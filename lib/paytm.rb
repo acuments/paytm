@@ -45,13 +45,14 @@ module Paytm
   end
 
   def self.request_headers(params)
-    check_sum_hash = EncryptionNewPG.new_pg_checksum_by_str(params.to_s, aes_key)
+    check_sum_hash = EncryptionNewPG.new_pg_checksum_by_str(params.to_json, aes_key)
     headers = {
         :user_agent => "github.com/ronakjain90/paytm/#{Paytm::VERSION}",
         :mid => guid[:merchant_guid],
         :checksumhash => check_sum_hash,
         :content_type => 'application/json'
     }
+    headers
   end
 
   def self.request(method, url, params={})
@@ -75,7 +76,7 @@ module Paytm
 
     request_opts.update(:headers => request_headers(payload),
                         :method => method, :open_timeout => open_timeout,
-                        :payload => payload, :url => url, :timeout => read_timeout)
+                        :payload => payload.to_json, :url => url, :timeout => read_timeout)
 
     puts request_opts
     response = execute_request(request_opts)
