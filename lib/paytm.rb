@@ -71,12 +71,12 @@ module Paytm
         url += "#{URI.parse(url).query ? '&' : '?'}#{Util.encode_parameters(params)}" if params && params.any?
         payload = nil
       else
-        payload = params
+        payload = params.to_json
     end
 
     request_opts.update(:headers => request_headers(payload),
                         :method => method, :open_timeout => open_timeout,
-                        :payload => payload.to_json, :url => url, :timeout => read_timeout)
+                        :payload => payload, :url => url, :timeout => read_timeout)
 
     puts request_opts
     response = execute_request(request_opts)
