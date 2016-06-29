@@ -6,6 +6,7 @@ require 'paytm/version'
 require 'paytm/encryption_new_pg'
 require 'paytm/request'
 require 'paytm/gratification'
+require 'paytm/transaction_request'
 
 
 module Paytm

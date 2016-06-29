@@ -13,7 +13,7 @@ module Paytm
     ### function returns dictionary of encrypted data ###
     ### accepts a dictionary with data and key to encrypt with ###
     ### can accept multiple key value pairs in the dictionary ###
-    def new_pg_encrypt(params)
+    def self.new_pg_encrypt(params)
       if (params.class != Hash) || (params.keys == [])
         return false
       end
@@ -66,7 +66,7 @@ module Paytm
     ### function returns dictionary of decrypted data ###
     ### accepts a dictionary with data and key to decrypt with ###
     ### can accept multiple key value pairs in the dictionary ###
-    def new_pg_decrypt(params)
+    def self.new_pg_decrypt(params)
       if (params.class != Hash) || (params.keys == [])
         return false
       end
