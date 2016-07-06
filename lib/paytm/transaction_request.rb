@@ -17,11 +17,11 @@ module Paytm
       attr_accessor :request_params
     end
 
-    def self.generate_check_sum(params)
-      request_params[:mid] = Paytm.guid[:merchant_guid]
+    def self.generate_check_sum(params, mid, merchant_key)
+      request_params[:mid] = mid
       request_params.merge!(params)
       modified_params = Hash[ request_params.map{ |k, v| [ k.to_s.upcase, v] } ]
-      modified_params.merge!({'CHECKSUM' => EncryptionNewPG.new_pg_checksum(modified_params, Paytm.aes_key)})
+      modified_params.merge!({'CHECKSUM' => EncryptionNewPG.new_pg_checksum(modified_params, merchant_key)})
       modified_params
     end
 
