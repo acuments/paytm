@@ -52,10 +52,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/ronakjain90/paytm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
-##Commercial license
-
-If you want to use this gem for a commercial application, commercial license is the appropriate license. With this option, your source code is kept proprietary. This will definitely helps you to save hours worth of effort.  
-
 ## Open-source license
 
 > Copyright (C) 2016 Ronak Jain (ronakjain90@gmail.com)
