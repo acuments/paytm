@@ -22,7 +22,8 @@ module Paytm
       request_params.merge!(params)
       platform.merge!(opts)
       request_params.merge!(Paytm.guid)
-      send_request(:post, merchant_to_wallet_url, request_params, platform)
+      response = send_request(:post, merchant_to_wallet_url, request_params, platform)
+      response
     end
 
     def check_status(params = {}, opts = {})
