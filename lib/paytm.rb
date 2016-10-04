@@ -46,10 +46,10 @@ module Paytm
   end
 
   def self.request_headers(params)
-    check_sum_hash = EncryptionNewPG.new_pg_checksum_by_str(params.to_json, aes_key)
+    check_sum_hash = EncryptionNewPG.new_pg_checksum_by_str(params, aes_key)
     headers = {
         :user_agent => "github.com/ronakjain90/paytm/#{Paytm::VERSION}",
-        :mid => guid[:merchant_guid],
+        :MID => guid[:merchant_guid],
         :checksumhash => check_sum_hash,
         :content_type => 'application/json'
     }
