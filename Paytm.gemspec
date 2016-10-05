@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ronakjain90@gmail.com"]
 
   spec.summary       = %q{Paytm integrationg for rails applicaiton}
-  spec.description   = %q{This is a Paytm integration for rails applicaiton!}
+  spec.description   = %q{This is a Paytm Gratification API integration for rails applicaiton!}
   spec.homepage      = ""
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
