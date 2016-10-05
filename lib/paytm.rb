@@ -83,8 +83,15 @@ module Paytm
     response
   end
 
+  def self.clean_response(response)
+    response = JSON.parse(response)
+    response = response.delete_if { |_k, v| v.nil? }
+    response
+  end
+
   def self.execute_request(opts)
-    RestClient::Request.execute(opts)
+    response = RestClient::Request.execute(opts)
+    response = clean_response(response)
   end
 
 end
